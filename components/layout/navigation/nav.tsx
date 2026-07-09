@@ -1,3 +1,4 @@
+import { Link } from "@/i18n/navigation";
 import { ThemeSwitcher } from "./theme-swither";
 import { LangSwitcher } from "./lang-switcher";
 import {
@@ -7,6 +8,7 @@ import {
   DrawerFooter,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import configs from "@/lib/configs";
 import { Menu } from "lucide-react";
 
 export function Nav() {
@@ -22,6 +24,13 @@ export function Nav() {
             <LangSwitcher />
           </div>
         </DrawerHeader>
+        <ul className="flex flex-col gap-2">
+          {Object.values(configs.nav).map((nav) => (
+            <Link key={nav.path} href={nav.path}>
+              {nav.label}
+            </Link>
+          ))}
+        </ul>
         <DrawerFooter></DrawerFooter>
       </DrawerContent>
     </Drawer>
