@@ -27,7 +27,7 @@ export default function About() {
         </div>
         <section
           aria-label="page content"
-          className={cn("w-full lg:w-1/2 flex flex-col lg:justify-end gap-2 lg:pb-0 font-light", configs.pagePadding)}
+          className={cn("w-full lg:w-1/2 pt-6 flex flex-col lg:justify-end gap-2 lg:pb-0 font-light", configs.pagePadding)}
         >
         {messages.map((message: string, index: number) => (
           <p key={index}>{message}</p>
