@@ -7,9 +7,11 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --font-body: var(--font-body-current);
+  --font-heading: var(--font-heading-current);
+  --font-serif: var(--font-serif);
   --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-heading);
+  --font-roboto: var(--font-roboto);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -81,6 +83,8 @@
   --sidebar-accent-foreground: oklch(0.214 0.009 43.1);
   --sidebar-border: oklch(0.922 0.005 34.3);
   --sidebar-ring: oklch(0.714 0.014 41.2);
+  --font-body-current: var(--font-roboto);
+  --font-heading-current: var(--font-heading);
 }
 
 .dark {
@@ -127,4 +131,9 @@
   html {
     @apply font-sans;
   }
+}
+
+[data-locale="ja"] {
+  --font-body-current: var(--font-sans);
+  --font-heading-current: var(--font-serif);
 }

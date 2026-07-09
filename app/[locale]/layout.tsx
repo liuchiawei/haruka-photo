@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { setRequestLocale } from "next-intl/server";
 import { Nav } from "@/components/layout/navigation/nav";
-import Footer from "@/components/layout/footer";
 type Props = {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
@@ -20,9 +19,10 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <NextIntlClientProvider locale={locale}>
+      <div data-locale={locale}>
       <Nav />
       {children}
-      <Footer />
+      </div>
     </NextIntlClientProvider>
   );
 }
