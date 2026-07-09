@@ -5,7 +5,7 @@ import { Dialog as DialogPrimitive } from "@base-ui/react/dialog"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { XIcon } from "lucide-react"
+import { XIcon, LoaderCircle } from "lucide-react"
 
 function Dialog({ ...props }: DialogPrimitive.Root.Props) {
   return <DialogPrimitive.Root data-slot="dialog" {...props} />
@@ -58,6 +58,9 @@ function DialogContent({
         )}
         {...props}
       >
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10">
+          <LoaderCircle className="size-10 animate-spin text-white" />
+        </div>
         {children}
         {showCloseButton && (
           <DialogPrimitive.Close
