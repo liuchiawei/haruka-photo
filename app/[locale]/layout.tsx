@@ -2,7 +2,9 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { setRequestLocale } from "next-intl/server";
-
+import { ThemeProvider } from "next-themes";
+import { Nav } from "@/components/layout/navigation/nav";
+import Footer from "@/components/layout/footer";
 type Props = {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
@@ -18,10 +20,16 @@ export default async function LocaleLayout({ children, params }: Props) {
   setRequestLocale(locale);
 
   return (
-    <NextIntlClientProvider locale={locale}>{children}</NextIntlClientProvider>
+    <NextIntlClientProvider locale={locale}>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <Nav />
+        {children}
+        <Footer />
+      </ThemeProvider>
+    </NextIntlClientProvider>
   );
 }
 
 export function generateStaticParams() {
-  return routing.locales.map((locale) => ({locale}));
+  return routing.locales.map((locale) => ({ locale }));
 }
