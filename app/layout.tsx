@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 import {
   Geist,
   Geist_Mono,
@@ -49,8 +50,9 @@ export default function RootLayout({
       )}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">
-          {children}
+      <body>
+        {children}
+        <Analytics />
       </body>
     </html>
   );
