@@ -11,6 +11,9 @@ importers:
       '@base-ui/react':
         specifier: ^1.6.0
         version: 1.6.0(@types/react@19.2.17)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@nauverse/tailwind-dot-grid-backgrounds':
+        specifier: ^1.2.13
+        version: 1.2.13(tailwindcss@4.3.2)
       '@vercel/analytics':
         specifier: ^2.0.1
         version: 2.0.1(next@16.2.10(@babel/core@7.29.7)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react@19.2.4)
@@ -536,6 +539,12 @@ packages:
     peerDependencies:
       '@emnapi/core': ^1.7.1
       '@emnapi/runtime': ^1.7.1
+
+  '@nauverse/tailwind-dot-grid-backgrounds@1.2.13':
+    resolution: {integrity: sha512-DBF5IW3vEOQV7tav8/hlGPco5MztF3HmAoKMD00hlpxgA6Dy+wJUsNgZgNUtv3tBKrJMx/1whYxn1Y9jJY0JzQ==}
+    engines: {node: '>=18.0.0'}
+    peerDependencies:
+      tailwindcss: '>=3.4.0'
 
   '@next/env@16.2.10':
     resolution: {integrity: sha512-zLPxg9M0MEHmygpj5OuxjQ+vHMiy/K7cSp74G8ecYolmgUWw0RwN02tF56npup/+qaI8JB97hQgS/r2Hb6QwVA==}
@@ -3714,6 +3723,10 @@ snapshots:
       '@emnapi/runtime': 1.10.0
       '@tybys/wasm-util': 0.10.3
     optional: true
+
+  '@nauverse/tailwind-dot-grid-backgrounds@1.2.13(tailwindcss@4.3.2)':
+    dependencies:
+      tailwindcss: 4.3.2
 
   '@next/env@16.2.10': {}
 

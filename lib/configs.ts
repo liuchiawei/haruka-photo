@@ -14,7 +14,10 @@ const configs = {
         path: "/contact",
         label: "Contact",
     }
-  }
+  },
+  portfolio: {
+    totalVolume: 27,
+  },
 };
 
 export default configs;
