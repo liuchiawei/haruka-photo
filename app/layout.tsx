@@ -8,6 +8,7 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "next-themes";
 
 const playfairDisplayHeading = Playfair_Display({
   subsets: ["latin"],
@@ -51,7 +52,9 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body>
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>

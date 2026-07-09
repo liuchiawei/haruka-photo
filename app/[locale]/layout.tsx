@@ -2,7 +2,6 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { setRequestLocale } from "next-intl/server";
-import { ThemeProvider } from "next-themes";
 import { Nav } from "@/components/layout/navigation/nav";
 import Footer from "@/components/layout/footer";
 type Props = {
@@ -21,11 +20,9 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <NextIntlClientProvider locale={locale}>
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <Nav />
-        {children}
-        <Footer />
-      </ThemeProvider>
+      <Nav />
+      {children}
+      <Footer />
     </NextIntlClientProvider>
   );
 }
