@@ -1,34 +1,40 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { motion } from "motion/react";
 import Image from "next/image";
-import { useState } from "react";
 import { cn } from "@/lib/utils";
+import configs from "@/lib/configs";
 
 export default function Hero() {
   const t = useTranslations("Home");
-  const [isFullscreen, setIsFullscreen] = useState(false);
-  const handleClick = () => {
-    setIsFullscreen(!isFullscreen);
-  };
   return (
     <div className="flex flex-col items-center justify-center h-screen relative">
-      <h1 className="h-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-heading font-bold text-white text-center text-shadow-lg [writing-mode:vertical-lr]">
-        {t("title")}
-      </h1>
-      <button className="absolute bottom-4 right-4 z-40" onClick={handleClick}>
-        {isFullscreen ? "Fullscreen" : "Normal"}
-      </button>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center gap-4">
+        <motion.h1
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-xl xl:text-2xl 2xl:text-4xl font-serif font-bold text-white text-center text-shadow-lg tracking-widest [writing-mode:vertical-lr]"
+        >
+          {configs.siteTiltle}
+        </motion.h1>
+        <motion.h2
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-sm xl:text-base 2xl:text-lg font-roboto font-light text-white text-center text-shadow-lg tracking-wide"
+        >
+          {configs.siteSubtitle}
+        </motion.h2>
+      </div>
       <Image
         src="/images/assets/hero.jpg"
         alt="Hero"
-        width={1000}
-        height={1000}
+        width={1200}
+        height={1200}
         className={cn(
-          "w-1/2 aspect-17/12 object-cover -z-10",
-          isFullscreen
-            ? "w-full h-full object-cover"
-            : "w-3/4 md:w-1/2 aspect-17/12 object-cover",
+          "w-full aspect-video lg:aspect-auto lg:h-full object-cover -z-10",
         )}
       />
     </div>

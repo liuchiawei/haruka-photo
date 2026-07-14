@@ -18,6 +18,8 @@ const configs = {
   portfolio: {
     totalVolume: 27,
   },
+  siteTiltle: "はるか",
+  siteSubtitle: "Haruka Photography"
 };
 
 export default configs;
