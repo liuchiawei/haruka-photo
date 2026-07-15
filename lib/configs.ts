@@ -16,7 +16,7 @@ const configs = {
     }
   },
   portfolio: {
-    totalVolume: 27,
+    totalVolume: 185,
   },
   siteTiltle: "はるか",
   siteSubtitle: "Haruka Photography"
