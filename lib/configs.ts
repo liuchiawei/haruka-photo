@@ -3,23 +3,23 @@ const configs = {
   pagePadding: "px-6",
   nav: {
     about: {
-        path: "/about",
-        label: "About",
+      path: "/about",
+      label: "About",
     },
     portfolio: {
-        path: "/portfolio",
-        label: "Portfolio",
+      path: "/portfolio",
+      label: "Portfolio",
     },
-    contact: {
-        path: "/contact",
-        label: "Contact",
-    }
   },
   portfolio: {
     totalVolume: 185,
   },
-  siteTiltle: "はるか",
-  siteSubtitle: "Haruka Photography"
+  siteTiltle: "Haruka Photography",
+  email: "haruka121377@gmail.com",
+  instagram: {
+    url: "https://www.instagram.com/haruka.tiff",
+    username: "haruka.tiff",
+  },
 };
 
 export default configs;

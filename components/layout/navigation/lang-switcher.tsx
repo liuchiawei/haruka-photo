@@ -2,6 +2,7 @@
 
 import { Languages } from "lucide-react";
 import { Link, usePathname } from "@/i18n/navigation";
+import { cn } from "@/lib/utils";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,11 +10,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-export function LangSwitcher() {
+export function LangSwitcher({ className }: { className?: string }) {
   const pathname = usePathname();
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>
+      <DropdownMenuTrigger className={cn(className, "cursor-pointer")}>
         <Languages className="size-4" />
       </DropdownMenuTrigger>
       <DropdownMenuContent>

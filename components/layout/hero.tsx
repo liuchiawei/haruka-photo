@@ -16,7 +16,7 @@ export default function Hero() {
         transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
         className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 text-3xl md:text-5xl lg:text-[3rem] xl:text-[5rem] font-light text-center text-white text-shadow-lg tracking-widest uppercase"
       >
-        {configs.siteSubtitle}
+        {configs.siteTiltle}
       </motion.h1>
       <Image
         src="/images/assets/hero.jpg"

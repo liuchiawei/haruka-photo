@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/drawer";
 import configs from "@/lib/configs";
 import { Menu } from "lucide-react";
+import SNSLinks from "@/components/sns-links";
 
 export function Nav() {
   return (
@@ -20,21 +21,27 @@ export function Nav() {
       <DrawerContent className="px-4 bg-background/80 backdrop:blur-sm">
         <DrawerHeader className="px-0 flex-row justify-between items-center">
           <Link href="/" className="text-2xl font-bold uppercase">
-            logo
+            {configs.siteTiltle}
           </Link>
           <div className="flex gap-2">
-            <ThemeSwitcher />
-            <LangSwitcher />
+            <ThemeSwitcher className="rounded-full" />
+            <LangSwitcher className="rounded-full" />
           </div>
         </DrawerHeader>
-        <ul className="flex flex-col gap-2">
+        <ul className="mt-2 flex flex-col gap-2">
           {Object.values(configs.nav).map((nav) => (
-            <Link key={nav.path} href={nav.path} className="w-full hover:bg-input/50 rounded-md p-2 transition-colors">
+            <Link
+              key={nav.path}
+              href={nav.path}
+              className="w-full text-xl tracking-wide hover:bg-input/50 rounded-md p-2 transition-colors"
+            >
               {nav.label}
             </Link>
           ))}
         </ul>
-        <DrawerFooter></DrawerFooter>
+        <DrawerFooter>
+          <SNSLinks />
+        </DrawerFooter>
       </DrawerContent>
     </Drawer>
   );
