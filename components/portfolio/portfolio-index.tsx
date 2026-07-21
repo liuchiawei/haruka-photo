@@ -20,7 +20,7 @@ export function PortfolioIndex({ categories }: PortfolioIndexProps) {
       >
         {t("title")}
       </h1>
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="p-1 grid grid-cols-2 lg:grid-cols-3 gap-1 md:gap-4">
         {categories.map((category) => (
           <Link
             key={category.slug}
@@ -33,6 +33,7 @@ export function PortfolioIndex({ categories }: PortfolioIndexProps) {
               width={600}
               height={600}
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              loading="lazy"
             />
             <span className="absolute inset-0 flex items-end justify-center bg-black/20 p-4 text-lg font-medium uppercase tracking-wide text-white">
               {t(`categories.${category.slug}`)}

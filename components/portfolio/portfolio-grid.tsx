@@ -11,7 +11,7 @@ type PortfolioGridProps = {
 
 export function PortfolioGrid({ slug, images }: PortfolioGridProps) {
   return (
-    <div className="grid grid-cols-4 lg:grid-cols-6 gap-4">
+    <div className="p-1 grid grid-cols-4 lg:grid-cols-6 gap-1 md:gap-4">
       {images.map((src, index) => (
         <PortfolioGridItem
           key={src}
@@ -54,6 +54,7 @@ const PortfolioGridItem = ({
             width={800}
             height={800}
             className="w-full h-full object-cover"
+            loading="lazy"
           />
         </DialogContent>
       </Dialog>
