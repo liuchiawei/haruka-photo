@@ -15,8 +15,8 @@ import SNSLinks from "@/components/sns-links";
 export function Nav() {
   return (
     <Drawer swipeDirection="right">
-      <DrawerTrigger className="absolute top-4 right-4 z-40">
-        <Menu className="size-4" />
+      <DrawerTrigger className="absolute top-4 right-4 z-40 text-white text-shadow-lg">
+        <Menu className="size-6" />
       </DrawerTrigger>
       <DrawerContent className="px-4 bg-background/80 backdrop:blur-sm">
         <DrawerHeader className="px-0 flex-row justify-between items-center">
