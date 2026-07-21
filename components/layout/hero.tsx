@@ -1,13 +1,11 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { cn } from "@/lib/utils";
 import configs from "@/lib/configs";
 
 export default function Hero() {
-  const t = useTranslations("Home");
   const shouldReduceMotion = useReducedMotion();
   const duration = shouldReduceMotion ? 0 : 2;
 
