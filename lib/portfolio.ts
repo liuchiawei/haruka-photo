@@ -29,10 +29,27 @@ function sortImagesByIndex(a: string, b: string): number {
   return numA - numB;
 }
 
-export function getCategoryImages(slug: PortfolioSlug): string[] {
-  const dir = path.join(PORTFOLIO_DIR, slug);
+function resolveCategoryDir(slug: PortfolioSlug): string | null {
+  if (!fs.existsSync(PORTFOLIO_DIR)) {
+    return null;
+  }
 
-  if (!fs.existsSync(dir)) {
+  const exactDir = path.join(PORTFOLIO_DIR, slug);
+  if (fs.existsSync(exactDir)) {
+    return exactDir;
+  }
+
+  const matchedDir = fs
+    .readdirSync(PORTFOLIO_DIR)
+    .find((name) => name.toLowerCase() === slug.toLowerCase());
+
+  return matchedDir ? path.join(PORTFOLIO_DIR, matchedDir) : null;
+}
+
+export function getCategoryImages(slug: PortfolioSlug): string[] {
+  const dir = resolveCategoryDir(slug);
+
+  if (!dir) {
     return [];
   }
 
