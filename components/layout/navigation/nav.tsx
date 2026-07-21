@@ -23,7 +23,11 @@ export function Nav() {
       <DrawerTrigger
         className={cn(
           "absolute top-4 right-4 z-40 text-shadow-lg",
-          pathname === "/" ? "text-white" : "text-foreground",
+          pathname === "/en"
+            ? "text-white"
+            : pathname === "/ja"
+              ? "text-white"
+              : "text-foreground",
         )}
       >
         <Menu className="size-6" />
