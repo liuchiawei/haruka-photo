@@ -31,7 +31,7 @@ export default async function PortfolioCategoryPage({ params }: Props) {
   const t = await getTranslations("Portfolio");
 
   return (
-    <div>
+    <div className="w-full">
       <h1
         aria-label="page title"
         className="text-center text-[4rem] md:text-[9rem] lg:text-[10rem] xl:text-[12rem] 2xl:text-[14rem] font-roboto font-thin tracking-widest uppercase"
