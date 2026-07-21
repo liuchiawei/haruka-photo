@@ -22,7 +22,7 @@ export function Nav() {
     <Drawer swipeDirection="right">
       <DrawerTrigger
         className={cn(
-          "absolute top-4 right-4 z-40 text-white text-shadow-lg",
+          "absolute top-4 right-4 z-40 text-shadow-lg",
           pathname === "/" ? "text-white" : "text-foreground",
         )}
       >
