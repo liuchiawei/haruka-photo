@@ -3,10 +3,10 @@ import path from "path";
 
 export const PORTFOLIO_SLUGS = [
   "event",
-  "documentary",
-  "street",
   "portrait",
-  "other",
+  "documentary",
+  "architecture",
+  "street",
 ] as const;
 
 export type PortfolioSlug = (typeof PORTFOLIO_SLUGS)[number];
