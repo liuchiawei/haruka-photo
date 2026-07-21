@@ -11,9 +11,6 @@ const configs = {
       label: "Portfolio",
     },
   },
-  portfolio: {
-    totalVolume: 185,
-  },
   siteTiltle: "Haruka Photography",
   email: "haruka121377@gmail.com",
   instagram: {

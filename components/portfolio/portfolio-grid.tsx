@@ -1,27 +1,47 @@
 "use client";
 
-import configs from "@/lib/configs";
 import Image from "next/image";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import type { PortfolioSlug } from "@/lib/portfolio";
 
-export function PortfolioGrid() {
+type PortfolioGridProps = {
+  slug: PortfolioSlug;
+  images: string[];
+};
+
+export function PortfolioGrid({ slug, images }: PortfolioGridProps) {
   return (
     <div className="grid grid-cols-4 lg:grid-cols-6 gap-4">
-      {Array.from({ length: configs.portfolio.totalVolume }, (_, i) => (
-        <PortfolioGridItem key={i} i={i} />
+      {images.map((src, index) => (
+        <PortfolioGridItem
+          key={src}
+          slug={slug}
+          src={src}
+          index={index}
+        />
       ))}
     </div>
   );
 }
 
-const PortfolioGridItem = ({ i }: { i: number }) => {
+const PortfolioGridItem = ({
+  slug,
+  src,
+  index,
+}: {
+  slug: PortfolioSlug;
+  src: string;
+  index: number;
+}) => {
+  const alt = `${slug} ${index + 1}`;
+
   return (
-    <div key={i} className="size-full aspect-square">
+    <div className="size-full aspect-square">
       <Dialog>
         <DialogTrigger className="size-full p-0">
           <Image
-            src={`/images/portfolio/${i + 1}.jpg`}
-            alt={`Portfolio ${i + 1}`}
+            src={src}
+            alt={alt}
             width={100}
             height={100}
             className="w-full h-full object-cover"
@@ -29,8 +49,8 @@ const PortfolioGridItem = ({ i }: { i: number }) => {
         </DialogTrigger>
         <DialogContent showCloseButton={false} className="p-0">
           <Image
-            src={`/images/portfolio/${i + 1}.jpg`}
-            alt={`Portfolio ${i + 1}`}
+            src={src}
+            alt={alt}
             width={800}
             height={800}
             className="w-full h-full object-cover"
