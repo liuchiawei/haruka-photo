@@ -1,3 +1,6 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import { ThemeSwitcher } from "./theme-swither";
 import { LangSwitcher } from "./lang-switcher";
@@ -8,14 +11,21 @@ import {
   DrawerFooter,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import { cn } from "@/lib/utils";
 import configs from "@/lib/configs";
 import { Menu } from "lucide-react";
 import SNSLinks from "@/components/sns-links";
 
 export function Nav() {
+  const pathname = usePathname();
   return (
     <Drawer swipeDirection="right">
-      <DrawerTrigger className="absolute top-4 right-4 z-40 text-white text-shadow-lg">
+      <DrawerTrigger
+        className={cn(
+          "absolute top-4 right-4 z-40 text-white text-shadow-lg",
+          pathname === "/" ? "text-white" : "text-foreground",
+        )}
+      >
         <Menu className="size-6" />
       </DrawerTrigger>
       <DrawerContent className="px-4 bg-background/80 backdrop:blur-sm">
