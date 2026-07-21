@@ -34,7 +34,7 @@ export default async function PortfolioCategoryPage({ params }: Props) {
     <div className="w-full">
       <h1
         aria-label="page title"
-        className="text-center text-[4rem] xl:text-[6rem] 2xl:text-[14rem] font-roboto font-thin tracking-widest uppercase wrap-break-word"
+        className="text-center text-[2rem] md:text-[3rem] xl:text-[6rem] 2xl:text-[10rem] font-roboto font-thin tracking-widest uppercase wrap-break-word"
       >
         {t(`categories.${slug}`)}
       </h1>
