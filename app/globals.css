@@ -86,7 +86,7 @@
   --sidebar-border: oklch(0.922 0.005 34.3);
   --sidebar-ring: oklch(0.714 0.014 41.2);
   --font-body-current: var(--font-roboto);
-  --font-heading-current: var(--font-heading);
+  --font-heading-current: var(--font-roboto);
 }
 
 .dark {
@@ -137,5 +137,5 @@
 
 [data-locale="ja"] {
   --font-body-current: var(--font-sans);
-  --font-heading-current: var(--font-serif);
+  --font-heading-current: var(--font-sans);
 }
