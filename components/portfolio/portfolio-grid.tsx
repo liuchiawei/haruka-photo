@@ -38,13 +38,13 @@ const PortfolioGridItem = ({
   return (
     <div className="size-full aspect-square">
       <Dialog>
-        <DialogTrigger className="size-full p-0">
+        <DialogTrigger className="size-full p-0 group overflow-hidden">
           <Image
             src={src}
             alt={alt}
             width={300}
             height={300}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
           />
         </DialogTrigger>
         <DialogContent showCloseButton={false} className="p-0">

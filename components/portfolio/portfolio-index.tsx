@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import type { PortfolioCategory } from "@/lib/portfolio";
+import { PageTitle } from "@/components/layout/page-title";
 
 type PortfolioIndexProps = {
   categories: PortfolioCategory[];
@@ -14,12 +15,7 @@ export function PortfolioIndex({ categories }: PortfolioIndexProps) {
 
   return (
     <div>
-      <h1
-        aria-label="page title"
-        className="text-center text-[4rem] md:text-[9rem] lg:text-[10rem] xl:text-[12rem] 2xl:text-[14rem] font-heading font-thin tracking-widest uppercase"
-      >
-        {t("title")}
-      </h1>
+      <PageTitle title={t("title")} />
       <div className="p-1 grid grid-cols-2 lg:grid-cols-3 gap-1 md:gap-4">
         {categories.map((category) => (
           <Link

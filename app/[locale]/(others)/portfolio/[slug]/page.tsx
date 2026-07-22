@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
+import { PageTitle } from "@/components/layout/page-title";
 import { PortfolioGrid } from "@/components/portfolio/portfolio-grid";
 import {
   getCategoryImages,
@@ -32,12 +33,7 @@ export default async function PortfolioCategoryPage({ params }: Props) {
 
   return (
     <div className="w-full">
-      <h1
-        aria-label="page title"
-        className="text-center text-[2rem] md:text-[3rem] xl:text-[6rem] 2xl:text-[10rem] font-heading font-thin tracking-widest uppercase wrap-break-word"
-      >
-        {t(`categories.${slug}`)}
-      </h1>
+      <PageTitle title={t(`categories.${slug}`)} />
       <PortfolioGrid slug={slug} images={images} />
     </div>
   );

@@ -2,18 +2,14 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import configs from "@/lib/configs";
 import { cn } from "@/lib/utils";
+import { PageTitle } from "@/components/layout/page-title";
 
 export default function About() {
   const t = useTranslations("About");
   const messages = t.raw("messages").split("\n\n");
   return (
     <div className="flex flex-col-reverse lg:flex-col gap-4">
-      <h1
-        aria-label="page title"
-        className="text-center text-[4rem] md:text-[9rem] lg:text-[10rem] xl:text-[12rem] 2xl:text-[14rem] font-heading font-black tracking-tighter leading-none lg:leading-normal uppercase"
-      >
-        {t("title")}
-      </h1>
+      <PageTitle title={t("title")} />
       <div className="flex flex-col lg:flex-row">
         <div className="w-full lg:w-1/2 relative">
           <Image
