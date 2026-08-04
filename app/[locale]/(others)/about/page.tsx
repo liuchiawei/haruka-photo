@@ -9,8 +9,8 @@ export default function About() {
   const messages = t.raw("messages").split("\n\n");
   return (
     <div className="flex flex-col-reverse lg:flex-col gap-4">
-      <PageTitle title={t("title")} />
-      <div className="flex flex-col lg:flex-row">
+      <PageTitle title={t("title")} coverSrc="/images/assets/haruka.jpg" />
+      <div className="flex flex-col lg:flex-row px-4">
         <div className="w-full lg:w-1/2 relative">
           <Image
             src="/images/assets/haruka.jpg"

@@ -15,8 +15,8 @@ export function PortfolioIndex({ categories }: PortfolioIndexProps) {
 
   return (
     <div>
-      <PageTitle title={t("title")} />
-      <div className="p-1 grid grid-cols-2 lg:grid-cols-3 gap-1 md:gap-4">
+      <PageTitle title={t("title")} coverSrc="/images/assets/hero.jpg" />
+      <div className="p-4 grid grid-cols-2 lg:grid-cols-3 gap-1 md:gap-4">
         {categories.map((category) => (
           <Link
             key={category.slug}

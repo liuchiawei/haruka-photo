@@ -32,9 +32,9 @@ export default async function PortfolioCategoryPage({ params }: Props) {
   const t = await getTranslations("Portfolio");
 
   return (
-    <div className="w-full">
-      <PageTitle title={t(`categories.${slug}`)} />
+    <>
+      <PageTitle title={t(`categories.${slug}`)} coverSrc={images[0]} />
       <PortfolioGrid slug={slug} images={images} />
-    </div>
+    </>
   );
 }
