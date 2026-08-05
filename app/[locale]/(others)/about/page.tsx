@@ -9,15 +9,15 @@ export default function About() {
   const messages = t.raw("messages").split("\n\n");
   return (
     <div className="flex flex-col-reverse lg:flex-col gap-4">
-      <PageTitle title={t("title")} coverSrc="/images/assets/haruka.jpg" />
-      <div className="flex flex-col lg:flex-row px-4">
+      <PageTitle title={t("title")} coverSrc="/images/assets/hero.jpg" />
+      <div className="flex flex-col lg:flex-row px-4 lg:px-12 xl:px-20">
         <div className="w-full lg:w-1/2 relative">
           <Image
             src="/images/assets/haruka.jpg"
             alt="Portrait of Haruka"
             width={600}
             height={600}
-            className="w-full aspect-square lg:aspect-12/17 object-cover"
+            className="w-full aspect-square object-cover"
           />
           <h2 className="absolute bottom-4 right-4 text-xl text-white">{t("name")}</h2>
         </div>

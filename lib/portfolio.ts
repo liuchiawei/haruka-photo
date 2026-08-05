@@ -2,11 +2,11 @@ import fs from "fs";
 import path from "path";
 
 export const PORTFOLIO_SLUGS = [
-  "event",
   "portrait",
   "documentary",
   "architecture",
   "street",
+  "event",
 ] as const;
 
 export type PortfolioSlug = (typeof PORTFOLIO_SLUGS)[number];
