@@ -16,6 +16,11 @@
       "street": "Street",
       "portrait": "Portrait",
       "architecture": "Architecture"
+    },
+    "subcategories": {
+      "studio": "Studio Portraits",
+      "location": "Location Portraits",
+      "documentary": "Documentary Portraits"
     }
   },
   "Contact": {

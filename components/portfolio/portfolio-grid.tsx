@@ -3,12 +3,11 @@
 import Image from "next/image";
 import { motion } from "motion/react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import type { PortfolioSlug } from "@/lib/portfolio";
 import { getBentoSpanClass } from "@/lib/portfolio-bento";
 import { cn } from "@/lib/utils";
 
 type PortfolioGridProps = {
-  slug: PortfolioSlug;
+  slug: string;
   images: string[];
 };
 
@@ -27,7 +26,7 @@ const PortfolioGridItem = ({
   src,
   index,
 }: {
-  slug: PortfolioSlug;
+  slug: string;
   src: string;
   index: number;
 }) => {
