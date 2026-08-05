@@ -29,7 +29,7 @@ export function PortfolioSubIndex({
   return (
     <div>
       <PageTitle title={title} coverSrc={coverSrc} />
-      <div className="flex flex-col gap-10 px-4 md:px-8 lg:px-16 py-4 md:py-8 lg:py-12 md:gap-14 lg:gap-20">
+      <div className="flex flex-col gap-10 px-4 md:px-8 lg:px-16 py-4 md:py-8 lg:py-12 md:gap-14 lg:gap-20 [&>*:nth-child(odd)>:first-child]:self-end">
         {subcategories.map((subcategory) => {
           const previews = subcategory.images.slice(0, 4);
           const subTitle = t(`subcategories.${subcategory.slug}`);
@@ -41,7 +41,7 @@ export function PortfolioSubIndex({
             >
               <Link
                 href={`/portfolio/${category}/${subcategory.slug}`}
-                className="group w-fit self-end flex items-center gap-2 md:gap-4 text-xl md:text-2xl lg:text-4xl font-light uppercase tracking-wide transition-opacity hover:opacity-60"
+                className="group w-fit flex items-center gap-2 md:gap-4 text-xl md:text-2xl lg:text-4xl font-thin uppercase tracking-wide opacity-60 transition-opacity hover:opacity-100"
               >
                 <ArrowRight className="size-4 md:size-6 transition-transform group-hover:translate-x-1" />
                 <span>{subTitle}</span>
