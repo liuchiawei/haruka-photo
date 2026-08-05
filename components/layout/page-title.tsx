@@ -25,7 +25,7 @@ export function PageTitle({
           src={coverSrc}
           alt=""
           fill
-          className="object-cover"
+          className="object-cover lg:object-[100%_25%]"
           sizes="(max-width: 1280px) 100vw, 1280px"
           priority
         />
