@@ -29,7 +29,7 @@ export default async function PortfolioCategoryPage({ params }: Props) {
   const t = await getTranslations("Portfolio");
 
   if (hasChildren(slug)) {
-    const subcategories = getPortfolioSubcategories(slug);
+    const subcategories = await getPortfolioSubcategories(slug);
 
     if (subcategories.length === 0) {
       notFound();
@@ -45,7 +45,7 @@ export default async function PortfolioCategoryPage({ params }: Props) {
     );
   }
 
-  const images = getCategoryImages(slug);
+  const images = await getCategoryImages(slug);
 
   if (images.length === 0) {
     notFound();

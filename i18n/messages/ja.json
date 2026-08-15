@@ -24,5 +24,30 @@
   },
   "Contact": {
     "title": "お問い合わせ"
+  },
+  "Dashboard": {
+    "title": "ダッシュボード",
+    "login": "ログイン",
+    "loginDescription": "ポートフォリオ画像を管理するにはログインしてください。",
+    "signingIn": "ログイン中…",
+    "logout": "ログアウト",
+    "username": "ユーザー名",
+    "password": "パスワード",
+    "invalidCredentials": "ユーザー名またはパスワードが正しくありません",
+    "category": "カテゴリー",
+    "upload": "アップロード",
+    "uploading": "アップロード中…",
+    "uploadSuccess": "画像をアップロードしました",
+    "uploadFailed": "アップロードに失敗しました",
+    "invalidFileType": "JPEG、PNG、または WebP を選択してください",
+    "delete": "削除",
+    "deleteConfirm": "この画像を削除しますか？この操作は取り消せません。",
+    "deleteSuccess": "画像を削除しました",
+    "cancel": "キャンセル",
+    "moveUp": "上へ",
+    "moveDown": "下へ",
+    "empty": "このカテゴリーにはまだ画像がありません。",
+    "priority": "優先度",
+    "cover": "カバー"
   }
 }

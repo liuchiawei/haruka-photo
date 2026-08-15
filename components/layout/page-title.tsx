@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { AppImage as Image } from "@/components/image";
 import { motion, useReducedMotion } from "motion/react";
 
 export function PageTitle({

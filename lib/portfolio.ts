@@ -1,5 +1,4 @@
-import fs from "fs";
-import path from "path";
+import { getBlobUrlsForKey } from "@/lib/blob-portfolio";
 
 export const PORTFOLIO = {
   portrait: {
@@ -29,8 +28,6 @@ export type PortfolioSubcategory = {
   cover: string;
 };
 
-const PORTFOLIO_DIR = path.join(process.cwd(), "public/images/portfolio");
-
 export function isPortfolioSlug(slug: string): slug is PortfolioSlug {
   return slug in PORTFOLIO;
 }
@@ -56,84 +53,78 @@ export function isPortfolioSubSlug(
   return (getCategoryChildren(category) as readonly string[]).includes(sub);
 }
 
-function sortImagesByIndex(a: string, b: string): number {
-  const numA = parseInt(a.match(/(\d+)/)?.[1] ?? "0", 10);
-  const numB = parseInt(b.match(/(\d+)/)?.[1] ?? "0", 10);
-  return numA - numB;
+export function getAllCategoryKeys(): string[] {
+  return PORTFOLIO_SLUGS.flatMap((slug) => {
+    const children = getCategoryChildren(slug);
+    if (children.length === 0) {
+      return [slug];
+    }
+
+    return children.map((sub) => `${slug}/${sub}`);
+  });
 }
 
-function resolveDir(...segments: string[]): string | null {
-  if (!fs.existsSync(PORTFOLIO_DIR)) {
-    return null;
+export function isValidCategoryKey(key: string): boolean {
+  const [category, sub, extra] = key.split("/");
+  if (extra || !category || !isPortfolioSlug(category)) {
+    return false;
   }
 
-  const exactDir = path.join(PORTFOLIO_DIR, ...segments);
-  if (fs.existsSync(exactDir)) {
-    return exactDir;
+  if (!sub) {
+    return !hasChildren(category);
   }
 
-  return null;
+  return isPortfolioSubSlug(category, sub);
 }
 
-function listJpgImages(dir: string, urlPrefix: string): string[] {
-  return fs
-    .readdirSync(dir)
-    .filter((file) => file.endsWith(".jpg"))
-    .sort(sortImagesByIndex)
-    .map((file) => `${urlPrefix}/${file}`);
-}
-
-export function getSubcategoryImages(
+export async function getSubcategoryImages(
   category: PortfolioSlug,
   sub: PortfolioSubSlug,
-): string[] {
-  const dir = resolveDir(category, sub);
-
-  if (!dir) {
-    return [];
-  }
-
-  return listJpgImages(dir, `/images/portfolio/${category}/${sub}`);
+): Promise<string[]> {
+  return getBlobUrlsForKey(`${category}/${sub}`);
 }
 
-export function getCategoryImages(slug: PortfolioSlug): string[] {
+export async function getCategoryImages(
+  slug: PortfolioSlug,
+): Promise<string[]> {
   if (hasChildren(slug)) {
-    return getCategoryChildren(slug).flatMap((sub) =>
-      getSubcategoryImages(slug, sub),
+    const nested = await Promise.all(
+      getCategoryChildren(slug).map((sub) => getSubcategoryImages(slug, sub)),
     );
+    return nested.flat();
   }
 
-  const dir = resolveDir(slug);
-
-  if (!dir) {
-    return [];
-  }
-
-  return listJpgImages(dir, `/images/portfolio/${slug}`);
+  return getBlobUrlsForKey(slug);
 }
 
-export function getPortfolioSubcategories(
+export async function getPortfolioSubcategories(
   category: PortfolioSlug,
-): PortfolioSubcategory[] {
-  return getCategoryChildren(category)
-    .map((slug) => {
-      const images = getSubcategoryImages(category, slug);
+): Promise<PortfolioSubcategory[]> {
+  const subcategories = await Promise.all(
+    getCategoryChildren(category).map(async (slug) => {
+      const images = await getSubcategoryImages(category, slug);
       return {
         slug,
         images,
         cover: images[0] ?? "",
       };
-    })
-    .filter((subcategory) => subcategory.images.length > 0);
+    }),
+  );
+
+  return subcategories.filter((subcategory) => subcategory.images.length > 0);
 }
 
-export function getPortfolioCategories(): PortfolioCategory[] {
-  return PORTFOLIO_SLUGS.map((slug) => {
-    const images = getCategoryImages(slug);
-    return {
-      slug,
-      images,
-      cover: images[0] ?? "",
-    };
-  }).filter((category) => category.images.length > 0);
+export async function getPortfolioCategories(): Promise<PortfolioCategory[]> {
+  const categories = await Promise.all(
+    PORTFOLIO_SLUGS.map(async (slug) => {
+      const images = await getCategoryImages(slug);
+      return {
+        slug,
+        images,
+        cover: images[0] ?? "",
+      };
+    }),
+  );
+
+  return categories.filter((category) => category.images.length > 0);
 }

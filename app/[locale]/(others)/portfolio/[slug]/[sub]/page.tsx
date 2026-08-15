@@ -28,7 +28,7 @@ export default async function PortfolioSubcategoryPage({ params }: Props) {
     notFound();
   }
 
-  const images = getSubcategoryImages(slug, sub);
+  const images = await getSubcategoryImages(slug, sub);
 
   if (images.length === 0) {
     notFound();
