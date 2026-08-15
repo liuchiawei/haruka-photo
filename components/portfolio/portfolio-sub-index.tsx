@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { AppImage as Image } from "@/components/image";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { ArrowRight } from "lucide-react";

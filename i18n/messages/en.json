@@ -25,5 +25,30 @@
   },
   "Contact": {
     "title": "Contact"
+  },
+  "Dashboard": {
+    "title": "Dashboard",
+    "login": "Sign in",
+    "loginDescription": "Sign in to manage portfolio images.",
+    "signingIn": "Signing in…",
+    "logout": "Sign out",
+    "username": "Username",
+    "password": "Password",
+    "invalidCredentials": "Invalid username or password",
+    "category": "Category",
+    "upload": "Upload",
+    "uploading": "Uploading…",
+    "uploadSuccess": "Images uploaded",
+    "uploadFailed": "Upload failed",
+    "invalidFileType": "Please choose JPEG, PNG, or WebP images",
+    "delete": "Delete",
+    "deleteConfirm": "Delete this image? This cannot be undone.",
+    "deleteSuccess": "Image deleted",
+    "cancel": "Cancel",
+    "moveUp": "Move up",
+    "moveDown": "Move down",
+    "empty": "No images in this category yet.",
+    "priority": "Priority",
+    "cover": "Cover"
   }
 }
