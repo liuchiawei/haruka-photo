@@ -1,5 +1,7 @@
 export const EXHIBITIONS = [
   {
+    id: 1,
+    slug: "solos",
     title: "SOLOS",
     date: {
         start: "2026-11-19",
