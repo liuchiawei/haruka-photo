@@ -38,7 +38,7 @@ export function PortfolioIndex({ categories }: PortfolioIndexProps) {
             >
               <Link
                 href={`/portfolio/${category.slug}`}
-                className="group w-fit flex items-center gap-2 md:gap-4 text-xl md:text-2xl lg:text-4xl font-thin uppercase tracking-wide opacity-60 transition-opacity hover:opacity-100"
+                className="group w-fit flex items-center gap-2 md:gap-4 text-lg md:text-xl lg:text-2xl font-thin uppercase tracking-wide opacity-60 transition-opacity hover:opacity-100"
               >
                 <ArrowRight
                   strokeWidth={1}

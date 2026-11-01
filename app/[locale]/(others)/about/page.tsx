@@ -11,13 +11,13 @@ export default function About() {
     <PageContainer title={t("title")} coverSrc="/images/assets/hero.jpg">
       <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
         {/* Portrait Image */}
-        <div className="w-full lg:w-1/2 relative">
+        <div className="w-full lg:w-1/2 h-48 lg:h-auto relative">
           <Image
             src="/images/assets/haruka.jpg"
             alt="Portrait of Haruka"
             width={600}
             height={600}
-            className="w-full aspect-square object-cover"
+            className="size-full object-cover"
           />
           <h2 className="absolute bottom-4 right-4 text-xl text-white">
             {t("name")}
@@ -26,13 +26,12 @@ export default function About() {
         {/* Information */}
         <section
           aria-label="page content"
-          className={cn(
-            "w-full lg:w-1/2 pt-6 flex flex-col lg:justify-end gap-2 lg:pb-0 font-light lg:self-end",
-            configs.pagePadding,
-          )}
+          className="w-full lg:w-1/2 pt-6 flex flex-col lg:justify-end gap-2 lg:pb-0 font-light lg:self-end"
         >
           {messages.map((message: string, index: number) => (
-            <p className="text-sm lg:text-base text-justify" key={index}>{message}</p>
+            <p className="text-sm lg:text-base text-justify" key={index}>
+              {message}
+            </p>
           ))}
         </section>
       </div>
