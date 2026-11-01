@@ -14,7 +14,7 @@ export function PageTitle({
   const duration = shouldReduceMotion ? 0 : 1.2;
 
   return (
-    <div className="relative w-screen overflow-hidden h-40 md:h-56 lg:h-72">
+    <div className="relative w-full mx-auto overflow-hidden h-40 md:h-56 lg:h-72">
       <motion.div
         initial={{ scale: shouldReduceMotion ? 1 : 1.15 }}
         animate={{ scale: 1 }}

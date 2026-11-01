@@ -24,7 +24,8 @@
   },
   "Exhibitions": {
     "title": "展覧会",
-    "viewDetails": "詳細を見る"
+    "viewDetails": "詳細を見る",
+    "back": "展覧会一覧"
   },
   "Contact": {
     "title": "お問い合わせ"

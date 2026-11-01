@@ -20,7 +20,7 @@ export default async function ExhibitionsPage() {
   const formatDate = new Intl.DateTimeFormat(locale, { dateStyle: "medium" });
 
   return (
-    <div>
+    <div className="w-full mx-auto">
       <PageTitle title={t("title")} coverSrc="/images/assets/hero.jpg" />
       <div className="flex flex-col gap-10 px-4 py-4 md:px-8 md:py-8 lg:px-16 lg:py-12">
         {EXHIBITIONS.map((exhibition) => {

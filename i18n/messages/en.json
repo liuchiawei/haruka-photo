@@ -25,7 +25,8 @@
   },
   "Exhibitions": {
     "title": "Exhibitions",
-    "viewDetails": "View Details"
+    "viewDetails": "View Details",
+    "back": "All exhibitions"
   },
   "Contact": {
     "title": "Contact"
