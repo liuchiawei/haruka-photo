@@ -13,6 +13,6 @@ export const EXHIBITIONS = [
         url: "https://collaplay.com/",
     },
     description: "Exhibition of Haruka's work, showing her latest works and her creative process.",
-    image: "https://via.placeholder.com/150",
+    image: "/images/assets/hero.jpg",
   },
 ] as const;

@@ -24,12 +24,12 @@ export async function ExhibitionListItem({
   exhibition,
 }: ExhibitionListItemProps) {
   const t = await getTranslations("Exhibitions");
-  const dateLabel = `${formatMonthDay(exhibition.date.start)} - ${formatMonthDay(exhibition.date.end)}`;
+  const dateLabel = `${formatMonthDay(exhibition.date.start)} ー ${formatMonthDay(exhibition.date.end)}`;
 
   return (
     <article className="flex gap-4 lg:gap-8">
       {/* Exhibition image */}
-      <div className="w-30 lg:w-40 aspect-square overflow-hidden">
+      <div className="w-30 lg:w-40 overflow-hidden">
         <Link href={`/exhibitions/${exhibition.slug}`}>
           <Image
             src={exhibition.image}
