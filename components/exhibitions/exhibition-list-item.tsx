@@ -1,4 +1,3 @@
-import { getTranslations } from "next-intl/server";
 import { AppImage as Image } from "@/components/image";
 import { Link } from "@/i18n/navigation";
 import type { EXHIBITIONS } from "@/lib/info-exhibitions";
@@ -22,7 +21,6 @@ type ExhibitionListItemProps = {
 export async function ExhibitionListItem({
   exhibition,
 }: ExhibitionListItemProps) {
-  const t = await getTranslations("Exhibitions");
   const dateLabel = `${formatMonthDay(exhibition.date.start)} ー ${formatMonthDay(exhibition.date.end)}`;
 
   return (
