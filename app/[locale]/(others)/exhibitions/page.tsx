@@ -8,7 +8,7 @@ export default async function ExhibitionsPage() {
 
   return (
     <PageContainer title={t("title")} coverSrc="/images/assets/hero.jpg">
-      <div className="flex flex-col gap-10">
+      <div className="h-full min-h-96 flex flex-col gap-10">
         {EXHIBITIONS.map((exhibition) => (
           <ExhibitionListItem
             key={`${exhibition.title}-${exhibition.date.start}`}

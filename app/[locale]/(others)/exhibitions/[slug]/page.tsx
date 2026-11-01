@@ -96,7 +96,7 @@ const ExhibitionDescription = ({
   return (
     <div className={cn("flex justify-between", configs.itemGrid)}>
       <h1 className="w-2/5 lg:w-full text-md lg:text-3xl font-thin uppercase">{title}</h1>
-      <p className="w-full text-xs lg:text-sm text-justify">{description}</p>
+      <p className="w-full h-full min-h-54 text-xs lg:text-sm text-justify">{description}</p>
     </div>
   );
 };

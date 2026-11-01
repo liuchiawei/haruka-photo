@@ -4,7 +4,7 @@ export const EXHIBITIONS = [
     slug: "solos",
     title: "SOLOS",
     date: {
-        start: "2026-11-19",
+        start: "2026-11-22",
         end: "2026-11-30",
     },
     location: {
