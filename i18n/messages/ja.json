@@ -22,6 +22,9 @@
       "documentary": "ドキュメンタリーポートレート"
     }
   },
+  "Exhibitions": {
+    "title": "展覧会"
+  },
   "Contact": {
     "title": "お問い合わせ"
   },

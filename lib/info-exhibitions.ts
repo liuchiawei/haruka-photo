@@ -1,11 +1,15 @@
 export const EXHIBITIONS = [
   {
-    title: "Exhibition 1",
+    title: "SOLOS",
     date: {
         start: "2026-11-19",
         end: "2026-11-30",
     },
-    location: "CollaPlay",
+    location: {
+        name: "CollaPlay",
+        address: "108台灣臺北市萬華區武昌街二段83之6號3樓",
+        url: "https://collaplay.com/",
+    },
     description: "Exhibition of Haruka's work",
     image: "https://via.placeholder.com/150",
   },
