@@ -23,11 +23,9 @@ export function PageTitle({
       >
         <Image
           src={coverSrc}
-          alt=""
+          alt="cover image"
           fill
           className="object-cover lg:object-[100%_25%]"
-          sizes="(max-width: 1280px) 100vw, 1280px"
-          priority
         />
       </motion.div>
       <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent" />

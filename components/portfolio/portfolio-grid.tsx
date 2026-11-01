@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { getBentoSpanClass } from "@/lib/portfolio-bento";
 import { cn } from "@/lib/utils";
+import configs from "@/lib/configs";
 
 type PortfolioGridProps = {
   slug: string;
@@ -13,7 +14,12 @@ type PortfolioGridProps = {
 
 export function PortfolioGrid({ slug, images }: PortfolioGridProps) {
   return (
-    <div className="w-full p-4 grid grid-cols-2 md:grid-cols-4 auto-rows-48 md:auto-rows-56 gap-2 md:gap-3">
+    <div
+      className={cn(
+        configs.pagePadding,
+        "w-full grid grid-cols-2 md:grid-cols-4 auto-rows-48 md:auto-rows-56 gap-2 md:gap-3",
+      )}
+    >
       {images.map((src, index) => (
         <PortfolioGridItem key={src} slug={slug} src={src} index={index} />
       ))}
@@ -36,7 +42,10 @@ const PortfolioGridItem = ({
 
   return (
     <motion.div
-      className={cn("size-full min-h-0 overflow-hidden", getBentoSpanClass(index))}
+      className={cn(
+        "size-full min-h-0 overflow-hidden",
+        getBentoSpanClass(index),
+      )}
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}

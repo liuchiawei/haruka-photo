@@ -5,7 +5,8 @@ export default function Footer() {
   return (
     <footer
       className={cn(
-        "w-full py-8 flex flex-col md:flex-row justify-center md:justify-between items-center md:items-end gap-4",
+        configs.maxWidth,
+        "py-8 flex flex-col md:flex-row justify-center md:justify-between items-center md:items-end gap-4",
         configs.pagePadding,
       )}
     >

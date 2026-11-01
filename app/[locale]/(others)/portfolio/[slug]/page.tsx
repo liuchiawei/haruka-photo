@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
-import { PageTitle } from "@/components/layout/page-title";
+import { PageContainer } from "@/components/layout/page-container";
 import { PortfolioGrid } from "@/components/portfolio/portfolio-grid";
 import { PortfolioSubIndex } from "@/components/portfolio/portfolio-sub-index";
 import {
@@ -52,9 +52,8 @@ export default async function PortfolioCategoryPage({ params }: Props) {
   }
 
   return (
-    <>
-      <PageTitle title={t(`categories.${slug}`)} coverSrc={images[0]} />
+    <PageContainer title={t(`categories.${slug}`)} coverSrc={images[0]}>
       <PortfolioGrid slug={slug} images={images} />
-    </>
+    </PageContainer>
   );
 }

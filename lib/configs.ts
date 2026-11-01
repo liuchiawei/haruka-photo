@@ -1,6 +1,6 @@
 const configs = {
-  maxWidth: "max-w-5xl 2xl:max-w-7xl",
-  pagePadding: "px-6",
+  maxWidth: "w-full mx-auto max-w-5xl 2xl:max-w-7xl",
+  pagePadding: "px-6 py-4 md:py-8 lg:py-12",
   nav: {
     about: {
       path: "/about",

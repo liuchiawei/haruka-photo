@@ -7,9 +7,10 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import type { PortfolioCategory } from "@/lib/portfolio";
 import { getBentoSpanClass } from "@/lib/portfolio-bento";
-import { PageTitle } from "@/components/layout/page-title";
+import { PageContainer } from "@/components/layout/page-container";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
+import configs from "@/lib/configs";
 
 type PortfolioIndexProps = {
   categories: PortfolioCategory[];
@@ -19,9 +20,13 @@ export function PortfolioIndex({ categories }: PortfolioIndexProps) {
   const t = useTranslations("Portfolio");
 
   return (
-    <div>
-      <PageTitle title={t("title")} coverSrc="/images/assets/hero.jpg" />
-      <div className="flex flex-col gap-10 px-4 md:px-8 lg:px-16 py-4 md:py-8 lg:py-12 md:gap-14 lg:gap-20 [&>*:nth-child(odd)>:first-child]:self-end">
+    <PageContainer title={t("title")} coverSrc="/images/assets/hero.jpg">
+      <div
+        className={cn(
+          configs.pagePadding,
+          "flex flex-col gap-10 py-4 md:py-8 lg:py-12 md:gap-14 lg:gap-20 [&>*:nth-child(odd)>:first-child]:self-end",
+        )}
+      >
         {categories.map((category) => {
           const previews = category.images.slice(0, 4);
           const title = t(`categories.${category.slug}`);
@@ -35,7 +40,10 @@ export function PortfolioIndex({ categories }: PortfolioIndexProps) {
                 href={`/portfolio/${category.slug}`}
                 className="group w-fit flex items-center gap-2 md:gap-4 text-xl md:text-2xl lg:text-4xl font-thin uppercase tracking-wide opacity-60 transition-opacity hover:opacity-100"
               >
-                <ArrowRight strokeWidth={1} className="size-4 md:size-6 transition-transform group-hover:translate-x-1" />
+                <ArrowRight
+                  strokeWidth={1}
+                  className="size-4 md:size-6 transition-transform group-hover:translate-x-1"
+                />
                 <span>{title}</span>
               </Link>
               <div className="grid grid-cols-2 gap-2 auto-rows-48 md:grid-cols-4 md:auto-rows-56 md:gap-3">
@@ -87,6 +95,6 @@ export function PortfolioIndex({ categories }: PortfolioIndexProps) {
           );
         })}
       </div>
-    </div>
+    </PageContainer>
   );
 }

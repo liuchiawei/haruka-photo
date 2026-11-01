@@ -1,4 +1,4 @@
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { AppImage as Image } from "@/components/image";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
@@ -11,9 +11,9 @@ function isBlobUrl(src: string) {
   return src.includes(".blob.vercel-storage.com");
 }
 
-function parseDate(iso: string) {
-  const [year, month, day] = iso.split("-").map(Number);
-  return new Date(year, month - 1, day);
+function formatMonthDay(iso: string) {
+  const [, month, day] = iso.split("-");
+  return `${month.padStart(2, "0")}.${day.padStart(2, "0")}`;
 }
 
 type ExhibitionListItemProps = {
@@ -24,9 +24,7 @@ export async function ExhibitionListItem({
   exhibition,
 }: ExhibitionListItemProps) {
   const t = await getTranslations("Exhibitions");
-  const locale = await getLocale();
-  const formatDate = new Intl.DateTimeFormat(locale, { dateStyle: "medium" });
-  const dateLabel = `${formatDate.format(parseDate(exhibition.date.start))} – ${formatDate.format(parseDate(exhibition.date.end))}`;
+  const dateLabel = `${formatMonthDay(exhibition.date.start)} - ${formatMonthDay(exhibition.date.end)}`;
 
   return (
     <article className="flex gap-4 lg:gap-8">
@@ -64,8 +62,6 @@ export async function ExhibitionListItem({
           <MapPin className="size-4" />
           {exhibition.location.name}
         </a>
-        {/* Exhibition description */}
-        <p className="w-3/4 font-light truncate">{exhibition.description}</p>
         <Button
           variant="outline"
           className="w-fit underline-offset-4 transition-opacity hover:opacity-60 rounded-full"
