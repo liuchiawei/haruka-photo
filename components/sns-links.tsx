@@ -5,25 +5,33 @@ import configs from "@/lib/configs";
 export default function SNSLinks() {
   return (
     <div aria-label="Social Links" className="flex flex-1 flex-col gap-2">
-      <Link
-        aria-label="Instagram"
-        href={configs.instagram.url}
-        target="_blank"
-        className="flex items-center gap-2"
-      >
+      <FooterLink href={configs.instagram.url}>
         <SiInstagram />{" "}
         <span className="text-sm lg:text-lg">
           @{configs.instagram.username}
         </span>
-      </Link>
-      <Link
-        aria-label="Email"
-        href={`mailto:${configs.email}`}
-        target="_blank"
-        className="flex items-center gap-2"
-      >
+      </FooterLink>
+      <FooterLink href={`mailto:${configs.email}`}>
         <SiGmail /> <span className="text-sm lg:text-lg">{configs.email}</span>
-      </Link>
+      </FooterLink>
     </div>
+  );
+}
+
+function FooterLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <Link
+      href={href}
+      target="_blank"
+      className="flex items-center gap-2 w-fit p-1 md:p-2"
+    >
+      {children}
+    </Link>
   );
 }

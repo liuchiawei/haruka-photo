@@ -10,8 +10,12 @@ const configs = {
       path: "/portfolio",
       label: "Portfolio",
     },
+    exhibitions: {
+      path: "/exhibitions",
+      label: "Exhibitions",
+    },
   },
-  siteTiltle: "Haruka Photography",
+  siteTiltle: "Haruka Kikuchi Photography",
   email: "haruka2697@gmail.com",
   instagram: {
     url: "https://www.instagram.com/haruka.tiff",

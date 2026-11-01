@@ -15,7 +15,7 @@ export default function Hero() {
         initial={{ opacity: 0, x: "-50%", y: "calc(-50% + 10px)" }}
         animate={{ opacity: 1, x: "-50%", y: "-50%" }}
         transition={{ duration, ease: "easeOut" }}
-        className="absolute left-1/2 top-1/2 z-10 text-3xl md:text-5xl lg:text-[3rem] xl:text-[5rem] font-light text-center text-white text-shadow-lg tracking-widest uppercase"
+        className="max-w-md absolute left-1/2 top-1/2 z-10 text-2xl md:text-3xl lg:text-5xl xl:text-[2rem] font-thin text-center text-white text-shadow-lg text-shadow-black/40 tracking-widest leading-relaxed uppercase"
       >
         {configs.siteTiltle}
       </motion.h1>
