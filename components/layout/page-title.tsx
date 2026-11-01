@@ -33,7 +33,7 @@ export function PageTitle({
       <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent" />
       <h1
         aria-label="page title"
-        className="absolute inset-x-0 bottom-4 md:bottom-6 z-10 px-4 text-center text-[1.5rem] md:text-[2.5rem] xl:text-[4rem] font-heading font-thin tracking-widest uppercase text-white text-shadow-lg wrap-break-word"
+        className="absolute inset-x-0 top-1/2 -translate-y-1/2 z-10 px-4 text-center text-2xl md:text-3xl xl:text-4xl font-heading font-thin tracking-widest uppercase text-white text-shadow-lg text-shadow-black/40 wrap-break-word"
       >
         {title}
       </h1>

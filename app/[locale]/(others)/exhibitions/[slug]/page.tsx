@@ -5,6 +5,7 @@ import { AppImage as Image } from "@/components/image";
 import { PageTitle } from "@/components/layout/page-title";
 import { Link } from "@/i18n/navigation";
 import { EXHIBITIONS } from "@/lib/info-exhibitions";
+import { ArrowLeft } from "lucide-react";
 
 function isBlobUrl(src: string) {
   return src.includes(".blob.vercel-storage.com");
@@ -51,13 +52,14 @@ export default async function ExhibitionPage({ params }: Props) {
     : "/images/assets/hero.jpg";
 
   return (
-    <div className="w-full mx-auto bg-red-500">
+    <div className="w-full mx-auto">
       <PageTitle title={exhibition.title} coverSrc={coverSrc} />
       <div className="w-full mx-auto flex flex-col gap-6 px-4 py-4 md:px-8 md:py-8 lg:px-16 lg:py-12">
         <Link
           href="/exhibitions"
-          className="w-fit text-sm tracking-wide underline-offset-4 transition-opacity hover:opacity-60"
+          className="group w-fit flex items-center gap-2 text-sm tracking-wide underline-offset-4 transition-opacity hover:opacity-60"
         >
+          <ArrowLeft className="size-4 group-hover:-translate-x-1 transition-transform" />
           {t("back")}
         </Link>
         <article className="flex flex-col gap-4 lg:flex-row lg:gap-8">

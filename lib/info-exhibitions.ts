@@ -12,7 +12,7 @@ export const EXHIBITIONS = [
         address: "108台灣臺北市萬華區武昌街二段83之6號3樓",
         url: "https://collaplay.com/",
     },
-    description: "Exhibition of Haruka's work",
+    description: "Exhibition of Haruka's work, showing her latest works and her creative process.",
     image: "https://via.placeholder.com/150",
   },
 ] as const;
