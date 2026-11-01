@@ -12,7 +12,7 @@ const configs = {
     },
   },
   siteTiltle: "Haruka Photography",
-  email: "haruka121377@gmail.com",
+  email: "haruka2697@gmail.com",
   instagram: {
     url: "https://www.instagram.com/haruka.tiff",
     username: "haruka.tiff",
