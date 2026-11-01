@@ -25,7 +25,10 @@
   "Exhibitions": {
     "title": "展覧会",
     "viewDetails": "詳細を見る",
-    "back": "展覧会一覧"
+    "back": "展覧会一覧",
+    "concept": "コンセプト",
+    "date": "会期",
+    "location": "会場"
   },
   "Contact": {
     "title": "お問い合わせ"

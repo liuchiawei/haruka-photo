@@ -23,7 +23,7 @@ export function Nav() {
       <DrawerContent className="px-4 bg-background/80 backdrop:blur-sm">
         <DrawerHeader className="px-0 flex-row justify-between items-center">
           <Link href="/" className="text-2xl font-bold uppercase">
-            {configs.siteTiltle}
+            {configs.siteTitle}
           </Link>
           <div className="flex gap-2">
             <ThemeSwitcher className="rounded-full" />

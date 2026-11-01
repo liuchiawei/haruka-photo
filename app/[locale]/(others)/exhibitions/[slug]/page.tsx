@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
-import { AppImage as Image } from "@/components/image";
+import { cn } from "@/lib/utils";
+import configs from "@/lib/configs";
 import { PageContainer } from "@/components/layout/page-container";
 import { Link } from "@/i18n/navigation";
 import { EXHIBITIONS } from "@/lib/info-exhibitions";
 import { ArrowLeft } from "lucide-react";
+import { PortfolioGrid } from "@/components/portfolio/portfolio-grid";
 
 function isBlobUrl(src: string) {
   return src.includes(".blob.vercel-storage.com");
@@ -45,49 +47,112 @@ export default async function ExhibitionPage({ params }: Props) {
 
   const t = await getTranslations("Exhibitions");
   const locale = await getLocale();
-  const formatDate = new Intl.DateTimeFormat(locale, { dateStyle: "medium" });
+  const formatDate = new Intl.DateTimeFormat(locale, { dateStyle: "short" });
   const dateLabel = `${formatDate.format(parseDate(exhibition.date.start))} – ${formatDate.format(parseDate(exhibition.date.end))}`;
   const coverSrc = isBlobUrl(exhibition.image)
     ? exhibition.image
     : "/images/assets/hero.jpg";
 
   return (
-    <PageContainer title={exhibition.title} coverSrc={coverSrc}>
+    <PageContainer
+      title={exhibition.title}
+      subtitle={t("title")}
+      info={dateLabel}
+      coverSrc={coverSrc}
+      className="space-y-4"
+    >
+      <ExhibitionDescription
+        title={t("concept")}
+        description={
+          exhibition.description[locale as keyof typeof exhibition.description]
+        }
+      />
+      <ExhibitionGallery slug={slug} imagesCount={exhibition.imagesCount} />
+      <ExhibitionInformation
+        dateTitle={t("date")}
+        locationTitle={t("location")}
+        date={dateLabel}
+        location={exhibition.location}
+      />
+      {/* Back button */}
       <Link
         href="/exhibitions"
-        className="mb-4 group w-fit flex items-center gap-2 text-sm tracking-wide underline-offset-4 transition-opacity hover:opacity-60"
+        className="mb-4 group flex items-center justify-center gap-2 text-center text-sm tracking-wide underline-offset-4 transition-opacity hover:opacity-60"
       >
         <ArrowLeft className="size-4 group-hover:-translate-x-1 transition-transform" />
         {t("back")}
       </Link>
-      <article className="flex flex-col gap-4 lg:flex-row lg:gap-8">
-        <div className="relative aspect-4/3 w-full overflow-hidden lg:w-1/2">
-          <Image
-            src={exhibition.image}
-            alt={exhibition.title}
-            fill
-            className="object-cover"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            unoptimized={!isBlobUrl(exhibition.image)}
-            priority
-          />
-        </div>
-        <div className="flex w-full flex-col justify-end gap-3 lg:w-1/2">
-          <p className="text-sm tracking-wide opacity-70 md:text-base">
-            {dateLabel}
-          </p>
+    </PageContainer>
+  );
+}
+
+const ExhibitionDescription = ({
+  title,
+  description,
+}: {
+  title: string;
+  description: string;
+}) => {
+  return (
+    <div className={cn("flex justify-between", configs.itemGrid)}>
+      <h1 className="w-2/5 lg:w-full text-md lg:text-3xl font-thin uppercase">{title}</h1>
+      <p className="w-full text-xs lg:text-sm text-justify">{description}</p>
+    </div>
+  );
+};
+
+const ExhibitionGallery = ({
+  slug,
+  imagesCount,
+}: {
+  slug: string;
+  imagesCount: number;
+}) => {
+  return (
+    <PortfolioGrid
+      images={Array.from(
+        { length: imagesCount },
+        (_, index) => `/images/exhibitions/${slug}-${index + 1}.jpg`,
+      )}
+    />
+  );
+};
+
+const ExhibitionInformation = ({
+  dateTitle,
+  locationTitle,
+  date,
+  location,
+}: {
+  dateTitle: string;
+  locationTitle: string;
+  date: string;
+  location: (typeof EXHIBITIONS)[number]["location"];
+}) => {
+  return (
+    <div className={cn("flex flex-col", configs.itemGrid)}>
+      <div className={cn("flex items-center", configs.itemGrid)}>
+        <h2 className="font-thin uppercase">
+          {dateTitle}
+        </h2>
+        <p className="w-full text-xs lg:text-sm">{date}</p>
+      </div>
+      <div className={cn("flex", configs.itemGrid)}>
+        <h2 className="font-thin uppercase">
+          {locationTitle}
+        </h2>
+        <div className="flex flex-col">
           <a
-            href={exhibition.location.url}
+            href={location.url}
             target="_blank"
             rel="noreferrer"
             className="w-fit underline-offset-4 transition-opacity hover:opacity-60"
           >
-            {exhibition.location.name}
+            {location.name}
           </a>
-          <p className="font-light opacity-80">{exhibition.location.address}</p>
-          <p className="font-light">{exhibition.description}</p>
+          <p className="text-xs lg:text-sm font-light">{location.address}</p>
         </div>
-      </article>
-    </PageContainer>
+      </div>
+    </div>
   );
-}
+};

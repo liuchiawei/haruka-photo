@@ -26,7 +26,10 @@
   "Exhibitions": {
     "title": "Exhibitions",
     "viewDetails": "View Details",
-    "back": "All exhibitions"
+    "back": "All exhibitions",
+    "concept": "Concept",
+    "date": "Dates",
+    "location": "Location"
   },
   "Contact": {
     "title": "Contact"

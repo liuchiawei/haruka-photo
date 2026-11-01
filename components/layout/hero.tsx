@@ -17,7 +17,7 @@ export default function Hero() {
         transition={{ duration, ease: "easeOut" }}
         className="max-w-md absolute left-1/2 top-1/2 z-10 text-2xl md:text-3xl lg:text-5xl xl:text-[2rem] font-thin text-center text-white text-shadow-lg text-shadow-black/40 tracking-widest leading-relaxed uppercase"
       >
-        {configs.siteTiltle}
+        {configs.siteTitle}
       </motion.h1>
       <div className="w-full h-full overflow-hidden">
         <motion.div

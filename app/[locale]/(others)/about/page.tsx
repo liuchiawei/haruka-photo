@@ -1,7 +1,5 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import configs from "@/lib/configs";
-import { cn } from "@/lib/utils";
 import { PageContainer } from "@/components/layout/page-container";
 
 export default function About() {

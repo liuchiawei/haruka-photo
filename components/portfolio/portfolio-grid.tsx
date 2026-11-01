@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 import configs from "@/lib/configs";
 
 type PortfolioGridProps = {
-  slug: string;
+  slug?: string;
   images: string[];
 };
 
@@ -16,12 +16,17 @@ export function PortfolioGrid({ slug, images }: PortfolioGridProps) {
   return (
     <div
       className={cn(
-        configs.pagePadding,
-        "w-full grid grid-cols-2 md:grid-cols-4 auto-rows-48 md:auto-rows-56 gap-2 md:gap-3",
+        "w-full grid grid-cols-2 md:grid-cols-4 auto-rows-48 md:auto-rows-56",
+        configs.itemGrid,
       )}
     >
       {images.map((src, index) => (
-        <PortfolioGridItem key={src} slug={slug} src={src} index={index} />
+        <PortfolioGridItem
+          key={src}
+          slug={slug ?? ""}
+          src={src}
+          index={index}
+        />
       ))}
     </div>
   );
@@ -32,11 +37,11 @@ const PortfolioGridItem = ({
   src,
   index,
 }: {
-  slug: string;
+  slug?: string;
   src: string;
   index: number;
 }) => {
-  const alt = `${slug} ${index + 1}`;
+  const alt = slug ? `${slug} ${index + 1}` : `${index + 1}`;
   const isFeatured = index % 6 === 0;
   const size = isFeatured ? 600 : 300;
 

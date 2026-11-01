@@ -8,6 +8,7 @@ export function AppImage({ unoptimized, ...props }: ImageProps) {
   return (
     <Image
       {...props}
+      loading="lazy"
       unoptimized={
         unoptimized ??
         (isVercelBlobUrl(props.src) && process.env.NODE_ENV !== "production")
