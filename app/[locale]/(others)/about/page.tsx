@@ -8,7 +8,7 @@ export default function About() {
   const t = useTranslations("About");
   const messages = t.raw("messages").split("\n\n");
   return (
-    <div className="flex flex-col-reverse lg:flex-col gap-4">
+    <div className="w-full mx-auto flex flex-col-reverse lg:flex-col gap-4">
       <PageTitle title={t("title")} coverSrc="/images/assets/hero.jpg" />
       <div className="flex flex-col lg:flex-row px-4 lg:px-12 xl:px-20">
         <div className="w-full lg:w-1/2 relative">

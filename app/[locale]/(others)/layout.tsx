@@ -11,11 +11,13 @@ export default function OthersLayout({
     <main
       className={cn(
         configs.maxWidth,
-        "mx-auto flex flex-col items-center justify-center",
+        "w-full min-w-screen mx-auto flex flex-col items-center justify-center",
       )}
     >
-      {children}
-      <Footer />
+      <div className="w-full mx-auto">
+        {children}
+        <Footer />
+      </div>
     </main>
   );
 }

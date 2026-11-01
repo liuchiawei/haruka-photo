@@ -51,7 +51,7 @@ export default async function ExhibitionPage({ params }: Props) {
     : "/images/assets/hero.jpg";
 
   return (
-    <div className="w-full mx-auto">
+    <div className="w-full mx-auto bg-red-500">
       <PageTitle title={exhibition.title} coverSrc={coverSrc} />
       <div className="w-full mx-auto flex flex-col gap-6 px-4 py-4 md:px-8 md:py-8 lg:px-16 lg:py-12">
         <Link
