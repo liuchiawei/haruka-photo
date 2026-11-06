@@ -21,7 +21,10 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   title: "Haruka Photography",
-  description: "Haruka Kikuchi's photography portfolio.",
+  description: "2026.11.22 - 11.30 Haruka's First Exhibition, SOLOS.",
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({
