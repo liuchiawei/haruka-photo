@@ -1,0 +1,62 @@
+{
+  "Home": {
+    "title": "Haruka Kikuchi",
+    "viewPortfolio": "查看作品集"
+  },
+  "About": {
+    "title": "關於我",
+    "name": "Haruka Kikuchi",
+    "messages": "我是一位來自東京的攝影師。\n\n出生於夏威夷，長於日本。過去八年，一邊發展攝影，一邊從事數位行銷。2026 年夏天於倫敦進修攝影，同時持續拍攝人物、品牌與個人企劃。\n\n作品以敘事為核心，探索人與其所處空間的關係。透過姿態、表情、留白與細膩的環境觀察，創造出既有電影感、又安靜而親密的影像。我不執著於安排每個細節，而是想捕捉那些能顯現性格、氣氛與情緒的細微片刻。\n\n除了商業與肖像攝影，也持續發展長期的紀實與個人計畫，探索身份、人際連結，以及跨越不同文化的當代生活。"
+  },
+  "Portfolio": {
+    "title": "作品集",
+    "categories": {
+      "event": "活動",
+      "documentary": "紀實",
+      "street": "街頭",
+      "portrait": "人像",
+      "architecture": "建築"
+    },
+    "subcategories": {
+      "studio": "棚拍人像",
+      "location": "外景人像",
+      "documentary": "紀實人像"
+    }
+  },
+  "Exhibitions": {
+    "title": "展覽",
+    "viewDetails": "查看詳情",
+    "back": "所有展覽",
+    "concept": "概念",
+    "date": "日期",
+    "location": "地點"
+  },
+  "Contact": {
+    "title": "聯絡"
+  },
+  "Dashboard": {
+    "title": "儀表板",
+    "login": "登入",
+    "loginDescription": "登入以管理作品集圖片。",
+    "signingIn": "登入中…",
+    "logout": "登出",
+    "username": "使用者名稱",
+    "password": "密碼",
+    "invalidCredentials": "使用者名稱或密碼不正確",
+    "category": "類別",
+    "upload": "上傳",
+    "uploading": "上傳中…",
+    "uploadSuccess": "圖片已上傳",
+    "uploadFailed": "上傳失敗",
+    "invalidFileType": "請選擇 JPEG、PNG 或 WebP 圖片",
+    "delete": "刪除",
+    "deleteConfirm": "要刪除這張圖片嗎？此操作無法復原。",
+    "deleteSuccess": "圖片已刪除",
+    "cancel": "取消",
+    "moveUp": "上移",
+    "moveDown": "下移",
+    "empty": "此類別尚無圖片。",
+    "priority": "優先順序",
+    "cover": "封面"
+  }
+}

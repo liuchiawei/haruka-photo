@@ -28,6 +28,11 @@ export function LangSwitcher({ className }: { className?: string }) {
             日本語
           </Link>
         </DropdownMenuItem>
+        <DropdownMenuItem>
+          <Link href={pathname} locale="zh-TW">
+            繁體中文
+          </Link>
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
