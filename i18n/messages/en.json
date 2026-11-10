@@ -1,6 +1,7 @@
 {
   "Home": {
-    "title": "Hello world!"
+    "title": "Hello world!",
+    "viewPortfolio": "View Portfolio"
   },
   "About": {
     "title": "About Me",
