@@ -21,7 +21,7 @@ export function ThemeSwitcher({
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       variant={variant}
       size={size}
-      className={cn(className)}
+      className={cn(className, "hover:bg-transparent hover:text-white dark:hover:bg-transparent dark:hover:text-white aria-expanded:bg-transparent aria-expanded:text-white")}
     >
       {theme === "dark" ? <Sun /> : <Moon />}
     </Button>

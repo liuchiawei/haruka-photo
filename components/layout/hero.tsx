@@ -36,7 +36,7 @@ export default function Hero() {
                 nativeButton={false}
                 variant="ghost"
                 size="lg"
-                className="bg-transparent text-neutral-200 hover:text-white hover:bg-transparent hover:scale-110 transition-transform"
+                className="bg-transparent text-neutral-200 hover:text-white hover:bg-transparent dark:hover:bg-transparent aria-expanded:bg-transparent hover:scale-110 transition-transform"
                 render={portfolioLink}
                 aria-label={t("viewPortfolio")}
               >
