@@ -17,20 +17,20 @@ import SNSLinks from "@/components/sns-links";
 export function Nav() {
   return (
     <Drawer swipeDirection="right">
-      <DrawerTrigger className="absolute top-4 right-4 z-40 text-white text-shadow-lg text-shadow-black/40">
+      <DrawerTrigger className="fixed top-4 right-4 z-40 text-white text-shadow-lg text-shadow-black cursor-pointer">
         <Menu className="size-6" />
       </DrawerTrigger>
-      <DrawerContent className="px-4 bg-background/80 backdrop:blur-sm">
+      <DrawerContent className="px-6 bg-background/10 dark:bg-background/20 backdrop:blur-sm border-none text-neutral-100">
         <DrawerHeader className="px-0 flex-row justify-between items-center">
           <Link href="/" className="text-2xl font-bold uppercase">
             {configs.siteTitle}
           </Link>
           <div className="flex gap-2">
-            <ThemeSwitcher className="rounded-full" />
+            <ThemeSwitcher className="hover:bg-transparent hover:text-white rounded-full" />
             <LangSwitcher className="rounded-full" />
           </div>
         </DrawerHeader>
-        <ul className="mt-2 flex flex-col gap-2">
+        <ul className="mt-4 flex flex-col gap-2">
           {Object.values(configs.nav).map((nav) => (
             <Link
               key={nav.path}
@@ -41,7 +41,7 @@ export function Nav() {
             </Link>
           ))}
         </ul>
-        <DrawerFooter>
+        <DrawerFooter className="px-0">
           <SNSLinks />
         </DrawerFooter>
       </DrawerContent>
